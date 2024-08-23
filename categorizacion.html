@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Figuras Geométricas con CSS</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #c2bec3;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .inicio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .inicio button {
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      animation: bounceIn 0.5s ease;
+    }
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.1);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .tabla {
+      display: none;
+      border-collapse: collapse;
+      margin: 0 auto;
+      border: 5px solid black;
+    }
+    .tabla td {
+      padding: 20px;
+      border: 5px solid black;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .tabla td.selected {
+      transform: scale(1.1);
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="inicio">
+    <button id="comenzar" >Comenzar</button>
+  </div>
+
+  <div class="tabla-container">
+    <table class="tabla">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <div class="inicio">
+      <button id="continuar" style="display: none;">Continuar</button>
+    </div>
+  </div>
+
+  <script>
+    const comenzarBtn = document.getElementById('comenzar');
+    const continuarBtn = document.getElementById('continuar');
+    const tabla = document.querySelector('.tabla');
+    const celdas = document.querySelectorAll('.tabla td');
+    let seleccionados = [];
+    let figurasSelecionadas = [];
+
+    comenzarBtn.addEventListener('click', () => {
+      comenzarBtn.classList.remove('bounceIn');
+      void comenzarBtn.offsetWidth; // Forzar la reactivación de la animación
+      comenzarBtn.style.display = 'none';
+      continuarBtn.style.display = 'inline-block';
+      tabla.style.display = 'table';
+
+      // Asignar figuras geométricas aleatorias a las celdas
+      const figuras = [
+        'cuadrado_rojo', 'cuadrado_azul', 'cuadrado_amarillo',
+        'cuadrado_rojo_borde', 'cuadrado_azul_borde', 'cuadrado_amarillo_borde',
+        'circulo_rojo', 'circulo_azul', 'circulo_amarillo',
+        'circulo_rojo_borde', 'circulo_azul_borde', 'circulo_amarillo_borde',
+        'triangulo_rojo', 'triangulo_azul', 'triangulo_amarillo',
+        'triangulo_rojo_borde', 'triangulo_azul_borde', 'triangulo_amarillo_borde'
+      ];
+
+      const shuffledFiguras = figuras.slice(); // Crear una copia del array
+      shuffledFiguras.sort(() => Math.random() - 0.5); // Mezclar el array
+
+      celdas.forEach((celda, index) => {
+        celda.innerHTML = `<div class="${shuffledFiguras[index]}"></div>`;
+      });
+
+      celdas.forEach(celda => {
+        celda.addEventListener('click', () => {
+          if (seleccionados.length < 3) {
+            if (seleccionados.includes(celda)) {
+              celda.classList.remove('selected');
+              seleccionados = seleccionados.filter(c => c !== celda);
+            } else {
+              celda.classList.add('selected');
+              seleccionados.push(celda);
+            }
+          } else {
+            if (seleccionados.includes(celda)) {
+              celda.classList.remove('selected');
+              seleccionados = seleccionados.filter(c => c !== celda);
+            } else {
+              alert('Ya has seleccionado 3 figuras.');
+            }
+          }
+        });
+      });
+
+      continuarBtn.addEventListener('click', () => {
+        if (seleccionados.length === 3) {
+          // Guardar los nombres de las figuras seleccionadas
+          figurasSelecionadas = seleccionados.map(celda => celda.firstElementChild.className);
+          console.log(figurasSelecionadas);
+
+          // Reorganizar aleatoriamente las figuras de la tabla
+          shuffledFiguras.sort(() => Math.random() - 0.5);
+          celdas.forEach((celda, index) => {
+            celda.innerHTML = `<div class="${shuffledFiguras[index]}"></div>`;
+          });
+
+          // Resetear la selección de celdas
+          seleccionados.forEach(celda => celda.classList.remove('selected'));
+          seleccionados = [];
+        } else {
+          alert('Debes seleccionar 3 figuras antes de continuar.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

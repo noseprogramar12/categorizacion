@@ -1,0 +1,243 @@
+
+body {
+    background: #c2bec3;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .cuadrado_rojo {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.722);
+  }
+  .cuadrado_azul {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(13, 0, 255, 0.722);
+  }
+  .cuadrado_amarillo {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 238, 0, 0.722);
+  }
+  .cuadrado_rojo_borde {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.722);
+    border: 10px solid black;
+  }
+  .cuadrado_azul_borde {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(13, 0, 255, 0.722);
+    border: 10px solid black;
+  }
+  .cuadrado_amarillo_borde {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 238, 0, 0.722);
+    border: 10px solid black;
+  }
+
+
+  .circulo_rojo {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.722);
+    border-radius: 50%;
+  }
+  .circulo_azul {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(13, 0, 255, 0.722);
+    border-radius: 50%;
+  }
+  .circulo_amarillo {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 238, 0, 0.722);
+    border-radius: 50%;
+  }
+  .circulo_rojo_borde {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.722);
+    border-radius: 50%;
+    border: 10px solid black;
+  }
+  .circulo_azul_borde {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(13, 0, 255, 0.722);
+    border-radius: 50%;
+    border: 10px solid black;
+  }
+  .circulo_amarillo_borde {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 238, 0, 0.722);
+    border-radius: 50%;
+    border: 10px solid black;
+  }
+
+  .triangulo_rojo {
+    width: 0;
+    height: 0px;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 140px solid rgba(255, 0, 0, 0.722);
+    position: relative;
+  }
+  .triangulo_azul {
+    width: 0;
+    height: 0px;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 140px solid rgba(13, 0, 255, 0.722);
+    position: relative;
+  }
+  .triangulo_amarillo {
+    width: 0;
+    height: 0px;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 140px solid rgba(255, 238, 0, 0.722);
+    position: relative;
+  }
+  .triangulo_rojo_borde {
+    width: 0;
+    height: 0px;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 140px solid black;
+    position: relative;
+  }
+  .triangulo_rojo_borde::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -65px;
+    width: 0;
+    height: 0;
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 113px solid rgba(255, 0, 0, 0.722);
+  }
+  .triangulo_azul_borde {
+    width: 0;
+    height: 0px;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 140px solid black;
+    position: relative;
+  }
+  .triangulo_azul_borde::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -65px;
+    width: 0;
+    height: 0;
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 113px solid rgba(13, 0, 255, 0.722);
+  }
+  .triangulo_amarillo_borde {
+    width: 0;
+    height: 0px;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 140px solid black;
+    position: relative;
+  }
+  .triangulo_amarillo_borde::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -65px;
+    width: 0;
+    height: 0;
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 113px solid rgba(255, 238, 0, 0.722);
+  }
+
+
+  .rectangulo {
+      width: 150px;
+      height: 100px;
+      background-color: rgba(255, 0, 247, 0.656);
+      border: 10px solid black;
+  }
+
+  .ovalo {
+    width: 150px;
+    height: 100px;
+    background-color: rgba(255, 234, 0, 0.527);
+    border-radius: 50%;
+    border: 10px solid black;
+  }
+
+  .medio_circulo {
+    width: 150px;
+    height: 100px;
+    background-color: rgba(0, 255, 229, 0.497);
+    border-radius: 100px 100px 0 0;
+    border: 10px solid black;
+  }
+
+  .hoja {
+    width: 150px;
+    height: 100px;
+    background-color: rgba(255, 0, 98, 0.424);
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border: 10px solid black;
+  }
+
+  .rombo {
+      width: 90px;
+      height: 90px;
+      background-color: rgba(0, 128, 62, 0.711);
+      border: 10px solid black;
+      transform: rotate(45deg) skewX(10deg) skewY(10deg);
+  }
+
+  .estrella {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    background: #000;
+    clip-path: polygon(50% 0%, 
+                      65% 30%, 
+                      100% 35%, 
+                      76% 58%, 
+                      82% 90%, 
+                      50% 75%, 
+                      18% 90%, 
+                      23% 59%, 
+                      0% 35%, 
+                      32% 30%);
+  }
+  
+  .estrella::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 115px;
+    height: 115px;
+    background: rgb(239, 239, 56);
+    clip-path: polygon(50% 0%, 
+                      65% 30%, 
+                      100% 35%, 
+                      76% 58%, 
+                      82% 90%, 
+                      50% 75%, 
+                      18% 90%, 
+                      23% 59%, 
+                      0% 35%, 
+                      32% 30%);
+  }
